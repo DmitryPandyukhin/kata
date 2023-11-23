@@ -4,20 +4,24 @@ public class ArabicNumber{
      * @param romanNumber Римское число.
      * @return Арабское число.
      */
-    public static int toArabicNumber(RomanNumber romanNumber) {
+    public static int toArabicNumber(String romanNumber) {
+        char ch;
+        int arabicDigit = 0;
+        int arabicPreviousDigit = 0;
         int result = 0;
-        int arabic = 0;
-        int arabicPrevious = 0;
-        var arr = romanNumber.getRomanNumber();
-        for(int i = arr.length - 1; i >= 0; i--){
-            arabic = arr[i].getArabicDigit();
-            if(arabic >= arabicPrevious){
-                result += arabic;
+
+        for(int i = romanNumber.length() - 1; i >= 0; i--){
+            ch = romanNumber.charAt(i);
+
+            arabicDigit = RomanDigit.getRomanDigit(ch);
+
+            if(arabicDigit >= arabicPreviousDigit){
+                result += arabicDigit;
             }
             else{
-                result -= arabic;
+                result -= arabicDigit;
             }
-            arabicPrevious = arabic;
+            arabicPreviousDigit = arabicDigit;
         }
         return result;
     }
