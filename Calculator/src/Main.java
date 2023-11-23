@@ -9,10 +9,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
         calc(input);
-
-        // Тестовый блок
-//        String input = "1 + 2 + 3";
-//        System.out.println(calc(input));
     }
 
     /**
